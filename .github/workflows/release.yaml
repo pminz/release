@@ -15,15 +15,15 @@ env:
   ref: main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Main workflow
-        run: |
-          echo "Dummy job to run dispatch job"
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Main workflow
+#        run: |
+#          echo "Dummy job to run dispatch job"
           
   dispatch:
-    needs: build
+#    needs: build
     strategy:
       matrix:
         repo: ['pminz/operator']
