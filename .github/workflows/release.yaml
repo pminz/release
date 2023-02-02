@@ -26,7 +26,7 @@ jobs:
 #    needs: build
     strategy:
       matrix:
-        repo: ['pminz/operator']
+        repo: ['pminz/operator', 'pminz/cache-manager']
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
