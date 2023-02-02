@@ -34,5 +34,5 @@ jobs:
         with:
           token: ${{ secrets.MY_TOKEN }}
           repository: ${{ matrix.repo }}
-          event-type: my-event
+          event-type: test-event
           client-payload: '{"ref": "${{ env.ref }}"}'
