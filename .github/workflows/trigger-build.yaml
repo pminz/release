@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Configure Git
         run: |
-        echo "last job was successful"
+          echo "last job was successful"
