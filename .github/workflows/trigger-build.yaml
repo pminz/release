@@ -1,0 +1,42 @@
+name: Trigger workflow for release
+
+on:
+  workflow_call:
+    inputs:
+      cache-manager-ref:
+        type: string
+        default: main
+      cache-manager-repository:
+        type: string
+        default: gingersnap-project/cache-manager
+      db-syncer-ref:
+        type: string
+        default: main
+      db-syncer-repository:
+        type: string
+        default: gingersnap-project/db-syncer
+      operator-ref:
+        type: string
+        default: main
+      operator-repository:
+        type: string
+        default: gingersnap-project/operator
+
+jobs:
+
+  check-images:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Check if db-syncer image exists
+       run:  |
+           docker manifest inspect quay.io/gingersnap/db-syncer:v${{ input.db-syncer-ref}} > /dev/null
+           
+     - name: Check if cache-manager image exists
+       run:  |
+           docker manifest inspect quay.io/gingersnap/cache-manager:v${{ input.cache-manager-ref}} > /dev/null
+  
+  operator: 
+    if: success()
+    needs: check-images
+    run: |
+        echo "last job was successful"
