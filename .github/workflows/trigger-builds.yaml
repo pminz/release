@@ -14,7 +14,7 @@ on:
         default: main
       db-syncer-repository:
         type: string
-        default: pminz/db-syncer
+        default: gingersnap-project/db-syncer
       operator-ref:
         type: string
         default: main
