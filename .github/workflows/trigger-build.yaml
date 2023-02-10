@@ -26,14 +26,9 @@ jobs:
 
   check-images:
     runs-on: ubuntu-latest
-    steps:
-     - name: Check if db-syncer image exists
-       run:  |
-           docker manifest inspect quay.io/gingersnap/db-syncer:latest > /dev/null
-
-     - name: Check if cache-manager image exists
-       run:  |
-           docker manifest inspect quay.io/gingersnap/cache-manager-mssql:main > /dev/null
+    uses: pminz/db-syncer/.github/workflows/test_create_tag.yaml@workflow_call
+    with: 
+      ref: ${{ inputs.db-syncer-ref }}
   
   operator: 
     runs-on: ubuntu-latest
