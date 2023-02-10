@@ -25,7 +25,6 @@ on:
 jobs:
 
   check-images:
-    runs-on: ubuntu-latest
     uses: pminz/db-syncer/.github/workflows/test_create_tag.yaml@workflow_call
     with: 
       ref: ${{ inputs.db-syncer-ref }}
