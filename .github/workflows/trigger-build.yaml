@@ -33,7 +33,7 @@ jobs:
 
      - name: Check if cache-manager image exists
        run:  |
-           docker manifest inspect quay.io/gingersnap/cache-manager-mssql:latest > /dev/null
+           docker manifest inspect quay.io/gingersnap/cache-manager-mssql:main > /dev/null
   
   operator: 
     runs-on: ubuntu-latest
