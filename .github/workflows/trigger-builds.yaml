@@ -1,7 +1,7 @@
 name: Trigger workflow for release
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       cache-manager-ref:
         type: string
@@ -37,7 +37,6 @@ jobs:
       repo: ${{ inputs.db-syncer-repository }}
   
   operator: 
-    if: success()
     needs: [cache-manager-images, db-syncer-image]
     uses: gingersnap-project/operator/.github/workflows/release.yaml@main
     with:
