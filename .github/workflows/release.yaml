@@ -1,0 +1,23 @@
+name: Trigger workflow for release
+
+on:
+  workflow_dispatch:
+    inputs:
+      cache-manager-ref:
+        type: string
+        default: main
+      db-syncer-ref:
+        type: string
+        default: main
+      operator-ref:
+        type: string
+        default: string 
+
+jobs:
+
+  trigger-workflow:
+    uses: gingersnap/release/.github/workflows/trigger-build.yaml@main
+    with: 
+      cache-manager-ref: ${{ inputs.cache-manager-ref }}
+      db-syncer-ref: ${{ inputs.db-syncer-ref}}
+      operator-ref: ${{ inputs.operator-ref}}
