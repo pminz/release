@@ -28,7 +28,7 @@ jobs:
     uses: pminz/db-syncer/.github/workflows/test_create_tag.yaml@workflow_call
     with: 
       ref: ${{ inputs.db-syncer-ref }}
-      repo: ${{ inputs.db-syncer-repository }}
+      repository: ${{ inputs.db-syncer-repository }}
   
   operator: 
     runs-on: ubuntu-latest
