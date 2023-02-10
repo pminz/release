@@ -42,6 +42,6 @@ jobs:
     uses: gingersnap-project/operator/.github/workflows/release.yaml@main
     with:
       ref: ${{ inputs.operator-ref }}
-      repo: ${{ inputs.}operator-repository }
+      repo: ${{ inputs.operator-repository }}
 
 
