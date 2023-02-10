@@ -21,3 +21,5 @@ jobs:
 
   trigger-workflow:
     uses: gingersnap/release/.github/workflows/trigger-build.yaml@release_workflow
+    with:
+      db-syncer-ref: ${{ inputs.db-syncer-ref }}
