@@ -6,12 +6,21 @@ on:
       cache-manager-ref:
         type: string
         default: main
+      cache-manager-repository:
+        type: string
+        default: gingersnap-project/cache-manager
       db-syncer-ref:
         type: string
         default: main
+      db-syncer-repository:
+        type: string
+        default: pminz/db-syncer
       operator-ref:
         type: string
         default: main
+      operator-repository:
+        type: string
+        default: gingersnap-project/operator
 
 jobs:
 
@@ -19,11 +28,13 @@ jobs:
     uses: gingersnap-project/cache-manager/.github/workflows/create-tag.yml@main
     with:
       ref: ${{ inputs.cache-manager-ref }}
+      repo: ${{ inputs.cache-manager-repository }}
 
   db-syncer-image:
     uses: gingersnap-project/db-syncer/.github/workflows/create-tag.yml@main
     with:
       ref: ${{ inputs.db-syncer-ref }}
+      repo: ${{ inputs.db-syncer-repository }}
   
   operator: 
     if: success()
@@ -31,5 +42,6 @@ jobs:
     uses: gingersnap-project/operator/.github/workflows/release.yaml@main
     with:
       ref: ${{ inputs.operator-ref }}
+      repo: ${{ inputs.}operator-repository }
 
 
