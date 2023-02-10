@@ -29,11 +29,11 @@ jobs:
     steps:
      - name: Check if db-syncer image exists
        run:  |
-           docker manifest inspect quay.io/gingersnap/db-syncer:v${{ input.db-syncer-ref}} > /dev/null
+           docker manifest inspect quay.io/gingersnap/db-syncer:v${{ inputs.db-syncer-ref}} > /dev/null
 
      - name: Check if cache-manager image exists
        run:  |
-           docker manifest inspect quay.io/gingersnap/cache-manager:v${{ input.cache-manager-ref}} > /dev/null
+           docker manifest inspect quay.io/gingersnap/cache-manager-mssql:v${{ inputs.cache-manager-ref}} > /dev/null
   
   operator: 
     runs-on: ubuntu-latest
