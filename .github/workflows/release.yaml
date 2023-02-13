@@ -19,7 +19,7 @@ env:
 jobs:
 
   trigger-workflow:
-    uses: gingersnap/release/.github/workflows/trigger-build.yaml@$ref
+    uses: gingersnap/release/.github/workflows/trigger-build.yaml@'$ref'
     with:
       db-syncer-ref: ${{ inputs.db-syncer-ref }}
     env:
