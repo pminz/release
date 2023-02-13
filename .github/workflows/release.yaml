@@ -13,11 +13,14 @@ on:
         type: string
         default: release_workflow
         
-    
+env:
+  workflowURL: "gingersnap/release/.github/workflows/trigger-build.yaml@${{inputs.ref}}"
 
 jobs:
 
+
+
   trigger-workflow:
-    uses: gingersnap/release/.github/workflows/trigger-build.yaml@\"${{inputs.ref}}\"
+    uses: ${{ env.workflowURL }}
     with:
       db-syncer-ref: ${{ inputs.db-syncer-ref }}
