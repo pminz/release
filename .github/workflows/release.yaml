@@ -18,9 +18,9 @@ env:
 
 jobs:
 
-
-
   trigger-workflow:
-    uses: $workflowURL
+    uses: gingersnap/release/.github/workflows/trigger-build.yaml@$ref
     with:
       db-syncer-ref: ${{ inputs.db-syncer-ref }}
+    env:
+      ref: ${{ inputs.ref }}
