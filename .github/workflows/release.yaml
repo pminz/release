@@ -21,6 +21,6 @@ jobs:
 
 
   trigger-workflow:
-    uses: ${{ env.workflowURL }}
+    uses: $workflowURL
     with:
       db-syncer-ref: ${{ inputs.db-syncer-ref }}
