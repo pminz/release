@@ -21,6 +21,9 @@ on:
       operator-repository:
         type: string
         default: gingersnap-project/operator
+      tag:
+         type: string
+         default: latest
 
 jobs:
 
@@ -28,19 +31,22 @@ jobs:
     uses: gingersnap-project/cache-manager/.github/workflows/create-tag.yml@main
     with:
       ref: ${{ inputs.cache-manager-ref }}
-      repo: ${{ inputs.cache-manager-repository }}
+      repository: ${{ inputs.cache-manager-repository }}
+      tag: ${{ inputs.tag }}
 
   db-syncer-image:
     uses: gingersnap-project/db-syncer/.github/workflows/create-tag.yml@main
     with:
       ref: ${{ inputs.db-syncer-ref }}
-      repo: ${{ inputs.db-syncer-repository }}
+      repository: ${{ inputs.db-syncer-repository }}
+      tag: ${{ inputs.tag }}
   
   operator: 
     needs: [cache-manager-images, db-syncer-image]
     uses: gingersnap-project/operator/.github/workflows/release.yaml@main
     with:
       ref: ${{ inputs.operator-ref }}
-      repo: ${{ inputs.operator-repository }}
+      repository: ${{ inputs.operator-repository }}
+      tag: ${{ inputs.tag }}
 
 
