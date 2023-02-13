@@ -18,6 +18,6 @@ on:
 jobs:
 
   trigger-workflow:
-    uses: gingersnap/release/.github/workflows/trigger-build.yaml@"${{inputs.ref}}"
+    uses: "gingersnap/release/.github/workflows/trigger-build.yaml@${{inputs.ref}}"
     with:
       db-syncer-ref: ${{ inputs.db-syncer-ref }}
