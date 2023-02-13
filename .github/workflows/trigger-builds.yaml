@@ -28,14 +28,14 @@ on:
 jobs:
 
   cache-manager-images:
-    uses: gingersnap-project/cache-manager/.github/workflows/create-tag.yml@main
+    uses: gingersnap-project/cache-manager/.github/workflows/publish-release.yaml@main
     with:
       ref: ${{ inputs.cache-manager-ref }}
       repository: ${{ inputs.cache-manager-repository }}
       tag: ${{ inputs.tag }}
 
   db-syncer-image:
-    uses: gingersnap-project/db-syncer/.github/workflows/create-tag.yml@main
+    uses: gingersnap-project/db-syncer/.github/workflows/publish-release.yaml@main
     with:
       ref: ${{ inputs.db-syncer-ref }}
       repository: ${{ inputs.db-syncer-repository }}
