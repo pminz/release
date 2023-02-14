@@ -1,0 +1,52 @@
+name: Trigger workflow for release
+
+on:
+  workflow_dispatch:
+    inputs:
+      cache-manager-ref:
+        type: string
+        default: main
+      cache-manager-repository:
+        type: string
+        default: gingersnap-project/cache-manager
+      db-syncer-ref:
+        type: string
+        default: main
+      db-syncer-repository:
+        type: string
+        default: gingersnap-project/db-syncer
+      operator-ref:
+        type: string
+        default: main
+      operator-repository:
+        type: string
+        default: gingersnap-project/operator
+      tag:
+         type: string
+         default: latest
+
+jobs:
+
+  cache-manager-images:
+    uses: gingersnap-project/cache-manager/.github/workflows/publish-release.yaml@main
+    with:
+      ref: ${{ inputs.cache-manager-ref }}
+      repository: ${{ inputs.cache-manager-repository }}
+      tag: ${{ inputs.tag }}
+
+  db-syncer-image:
+    uses: gingersnap-project/db-syncer/.github/workflows/publish-release.yaml@main
+    with:
+      ref: ${{ inputs.db-syncer-ref }}
+      repository: ${{ inputs.db-syncer-repository }}
+      tag: ${{ inputs.tag }}
+  
+  operator: 
+    needs: [cache-manager-images, db-syncer-image]
+    uses: gingersnap-project/operator/.github/workflows/release.yaml@main
+    with:
+      ref: ${{ inputs.operator-ref }}
+      repository: ${{ inputs.operator-repository }}
+      tag: ${{ inputs.tag }}
+
+
