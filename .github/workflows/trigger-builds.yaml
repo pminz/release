@@ -29,6 +29,7 @@ jobs:
 
   cache-manager-images:
     uses: gingersnap-project/cache-manager/.github/workflows/publish-release.yaml@main
+    secrets: inherit
     with:
       ref: ${{ inputs.cache-manager-ref }}
       repository: ${{ inputs.cache-manager-repository }}
@@ -36,6 +37,7 @@ jobs:
 
   db-syncer-image:
     uses: gingersnap-project/db-syncer/.github/workflows/publish-release.yaml@main
+    secrets: inherit
     with:
       ref: ${{ inputs.db-syncer-ref }}
       repository: ${{ inputs.db-syncer-repository }}
@@ -44,6 +46,7 @@ jobs:
   operator: 
     needs: [cache-manager-images, db-syncer-image]
     uses: gingersnap-project/operator/.github/workflows/release.yaml@main
+    secrets: inherit
     with:
       ref: ${{ inputs.operator-ref }}
       repository: ${{ inputs.operator-repository }}
