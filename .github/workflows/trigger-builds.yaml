@@ -21,4 +21,4 @@ jobs:
     with:
       ref: ${{ inputs.operator-ref }}
       repository: ${{ inputs.operator-repository }}
-      tag: ${{ inputs.tag }
+      tag: ${{ inputs.tag }}
