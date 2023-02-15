@@ -11,16 +11,14 @@ on:
         default: gingersnap-project/operator
       tag:
          type: string
-         default: latest
+         default: latest 
 
 jobs:
   
   operator: 
-    uses: gingersnap-project/operator/.github/workflows/release.yaml@main
+    uses: pminz/operator/.github/workflows/release.yaml@test_checkout
     secrets: inherit
     with:
       ref: ${{ inputs.operator-ref }}
       repository: ${{ inputs.operator-repository }}
-      tag: ${{ inputs.tag }}
-
-
+      tag: ${{ inputs.tag }
