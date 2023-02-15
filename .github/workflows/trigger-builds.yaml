@@ -3,18 +3,6 @@ name: Trigger workflow for release
 on:
   workflow_dispatch:
     inputs:
-      cache-manager-ref:
-        type: string
-        default: main
-      cache-manager-repository:
-        type: string
-        default: gingersnap-project/cache-manager
-      db-syncer-ref:
-        type: string
-        default: main
-      db-syncer-repository:
-        type: string
-        default: gingersnap-project/db-syncer
       operator-ref:
         type: string
         default: main
